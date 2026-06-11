@@ -4,6 +4,10 @@
 producing a readable markdown report — built for solo operators who want Ahrefs-style
 answers without the subscription.
 
+Born from auditing my own blog, [cloudapp.dev](https://www.cloudapp.dev) — the full story
+(and what the toolkit found on its own author's site) is in the launch post:
+[An Open-Source SEO + GEO Audit Toolkit in Plain Node](https://www.cloudapp.dev/open-source-seo-geo-audit-toolkit).
+
 **GEO** = Generative Engine Optimization: is your site readable for **AI answer engines**
 (ChatGPT, Claude, Perplexity, Google AI Overviews)? Their crawlers mostly **don't execute
 JavaScript** — so structured data your framework injects client-side, or metadata streamed
@@ -147,6 +151,14 @@ environment variables, so everything is cron-/CI-friendly.
   sees. AI crawlers don't. Auditing both views — and diffing them — is what GEO needs.
 
 PRs welcome. Scope is deliberately small — these are sharp little knives, not a platform.
+
+## About
+
+Built and maintained by [lireking](https://github.com/lireking). These are the exact
+scripts behind the weekly audits of [www.cloudapp.dev](https://www.cloudapp.dev) — a blog
+about Home Assistant, Next.js and self-hosting; the toolkit's findings there (streamed
+metadata, datacenter bot traffic, a #1 ranking with 0% CTR) are documented in the
+[launch post](https://www.cloudapp.dev/open-source-seo-geo-audit-toolkit).
 
 ## License
 
