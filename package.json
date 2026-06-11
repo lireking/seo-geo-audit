@@ -1,0 +1,27 @@
+{
+  "name": "seo-geo-audit",
+  "version": "1.0.0",
+  "description": "Dependency-free SEO + GEO (AI-search readiness) audit toolkit: site crawler, Core Web Vitals, Google Search Console opportunities, Umami analytics — each one command, each a markdown report.",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:lireking/seo-geo-audit",
+  "keywords": [
+    "seo",
+    "geo",
+    "generative-engine-optimization",
+    "ai-search",
+    "audit",
+    "crawler",
+    "core-web-vitals",
+    "search-console",
+    "umami",
+    "llms-txt"
+  ],
+  "scripts": {
+    "audit:seo": "seo-audit/run.sh",
+    "audit:perf": "node perf-audit/perf-audit.mjs",
+    "audit:gsc": "node gsc-fetch/gsc-fetch.mjs",
+    "audit:umami": "node umami-fetch/umami-fetch.mjs",
+    "gsc:auth": "node gsc-fetch/gsc-auth.mjs"
+  }
+}

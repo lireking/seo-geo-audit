@@ -1,0 +1,12 @@
+# reports are generated output
+reports/
+
+# credentials live here, never in the repo
+.env
+.env.*
+!.env.example
+*-key.json
+service-account*.json
+
+node_modules/
+.DS_Store
