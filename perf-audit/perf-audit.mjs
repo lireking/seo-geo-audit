@@ -183,6 +183,23 @@ async function psi(url) {
 async function getBacklinks() {
   const provider = (process.env.BACKLINKS_PROVIDER || "").toLowerCase();
   const target = HOST;
+  // SEMrush (auto-used if SEMRUSH_API_KEY is set): Backlinks API overview —
+  // authority score + total backlinks + referring domains. ~40 API units/call.
+  if ((provider === "semrush" || (!provider && process.env.SEMRUSH_API_KEY)) && process.env.SEMRUSH_API_KEY) {
+    try {
+      const cols = "ascore,total,domains_num,urls_num,follows_num,nofollows_num";
+      const u = `https://api.semrush.com/analytics/v1/?key=${process.env.SEMRUSH_API_KEY}` +
+        `&type=backlinks_overview&target=${encodeURIComponent(target)}&target_type=root_domain&export_columns=${cols}`;
+      const r = await fetch(u);
+      const text = await r.text();
+      if (!r.ok || text.startsWith("ERROR")) return { configured: true, provider: "semrush", error: `${r.status} ${text.slice(0, 120)}` };
+      const [head, row] = text.trim().split("\n");
+      const keys = head.split(";"), vals = (row || "").split(";");
+      return { configured: true, provider: "semrush", data: Object.fromEntries(keys.map((k, i) => [k.trim(), vals[i]])) };
+    } catch (e) {
+      return { configured: true, provider: "semrush", error: e.message };
+    }
+  }
   if (provider === "ahrefs" && process.env.AHREFS_API_TOKEN) {
     try {
       const u = `https://api.ahrefs.com/v3/site-explorer/backlinks-stats?target=${encodeURIComponent(
@@ -198,9 +215,8 @@ async function getBacklinks() {
   return {
     configured: false,
     note:
-      "Backlinks need a paid data provider — no free source exists. Set BACKLINKS_PROVIDER=ahrefs + " +
-      "AHREFS_API_TOKEN (or wire Moz/Majestic in getBacklinks). Google Search Console's Links report is " +
-      "the free-but-partial alternative (manual export).",
+      "Backlinks need a paid data provider. Set SEMRUSH_API_KEY (Backlinks API, ~40 units/call, auto-used) " +
+      "or BACKLINKS_PROVIDER=ahrefs + AHREFS_API_TOKEN. GSC's Links report is the free-but-partial alternative.",
   };
 }
 
