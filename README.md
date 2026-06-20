@@ -1,8 +1,24 @@
+<div align="center">
+
+<img src="assets/hero.jpg" alt="seo-geo-audit — dependency-free SEO + GEO audit toolkit" width="820">
+
 # seo-geo-audit
 
-**Dependency-free SEO + GEO audit toolkit.** Four small tools, each one command, each
-producing a readable markdown report — built for solo operators who want Ahrefs-style
-answers without the subscription.
+**Dependency-free SEO + GEO (AI-search) audit toolkit.** Four small tools, each one
+command, each producing a readable markdown report — Ahrefs-style answers without the
+subscription.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Node ≥18](https://img.shields.io/badge/node-%E2%89%A518-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](package.json)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#philosophy)
+[![GitHub stars](https://img.shields.io/github/stars/lireking/seo-geo-audit?style=social)](https://github.com/lireking/seo-geo-audit/stargazers)
+
+⭐ **If this saves you a $99/mo SEO subscription, star it** — it helps other solo operators find it.
+
+</div>
+
+---
 
 Born from auditing my own blog, [cloudapp.dev](https://www.cloudapp.dev) — the full story
 (and what the toolkit found on its own author's site) is in the launch post:
